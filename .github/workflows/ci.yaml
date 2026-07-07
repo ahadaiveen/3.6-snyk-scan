@@ -28,7 +28,7 @@ jobs:
       - name: Terraform Validate
         run: terraform validate -no-color
 
-  snyk-checks:
+    snyk-checks:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,6 +39,6 @@ jobs:
         run: npm install -g snyk
 
       - name: Snyk IaC Test
-        run: snyk iac test .
+        run: snyk test --iac
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
